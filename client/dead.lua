@@ -15,7 +15,6 @@ function OnDeath()
         TriggerServerEvent("hospital:server:SetDeathStatus", true)
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "demo", 0.1)
         local player = PlayerPedId()
-
         while GetEntitySpeed(player) > 0.5 or IsPedRagdoll(player) do
             Wait(10)
         end
@@ -28,7 +27,7 @@ function DeathTimer()
         Wait(sleep)
         deathTime = deathTime - 1
         if deathTime <= 0 then
-            if IsControlPressed(0, 0xCEFD9220) and not isInHospitalBed then
+            if IsControlPressed(0, RSGCore.Shared.Keybinds['E']) and not isInHospitalBed then
                 sleep= 10
                 TriggerEvent("hospital:client:RespawnAtHospital")
                 return
@@ -60,11 +59,9 @@ CreateThread(function()
                 SetLaststand(false)
                 local killer_2, killerWeapon = NetworkGetEntityKillerOfPlayer(player)
                 local killer = GetPedSourceOfDeath(playerPed)
-
                 if killer_2 ~= 0 and killer_2 ~= -1 then
                     killer = killer_2
                 end
-
                 local killerId = NetworkGetPlayerIndexFromPed(killer)
                 local killerName = killerId ~= -1 and GetPlayerName(killerId) .. " " .. "("..GetPlayerServerId(killerId)..")" or Lang:t('info.self_death')
                 local weaponLabel = Lang:t('info.wep_unknown')
@@ -92,10 +89,9 @@ CreateThread(function()
             sleep = 5
             local ped = PlayerPedId()
             DisableAllControlActions(0)
-			EnableControlAction(0, 0x9720FCEE, true)   -- T
-            EnableControlAction(0, 0xCEFD9220, true)    -- E
-            EnableControlAction(0, 0x760A9C6F, true)    -- G
-
+			EnableControlAction(0, RSGCore.Shared.Keybinds['T'], true)   -- T
+            EnableControlAction(0, RSGCore.Shared.Keybinds['E'], true)    -- E
+            EnableControlAction(0, RSGCore.Shared.Keybinds['G'], true)    -- G
             if isDead then
                 if not isInHospitalBed then
                     if deathTime > 0 then
@@ -107,7 +103,6 @@ CreateThread(function()
                 SetCurrentPedWeapon(ped, `WEAPON_UNARMED`, true)
             elseif InLaststand then
                 sleep = 5
-
                 if LaststandTime > Laststand.MinimumRevive then
                     DrawTxt(Lang:t('info.bleed_out', {time = math.ceil(LaststandTime)}), 0.50, 0.80, 0.5, 0.5, true, 255, 255, 255, 200, true)
                 else
@@ -117,8 +112,7 @@ CreateThread(function()
                     else
                         DrawTxt(Lang:t('info.help_requested'), 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 200, true)
                     end
-
-                    if IsControlJustPressed(0, 0x760A9C6F) and not emsNotified then
+                    if IsControlJustPressed(0, RSGCore.Shared.Keybinds['G']) and not emsNotified then
                         TriggerServerEvent('hospital:server:ambulanceAlert', Lang:t('info.civ_down'))
                         emsNotified = true
                     end

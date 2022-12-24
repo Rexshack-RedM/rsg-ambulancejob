@@ -1,5 +1,4 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
-
 local getOutDict = 'script_re@campfire_massacre'
 local getOutAnim = 'cry_getup_man'
 local walkHealthDict = 'arthur_healthy'
@@ -47,62 +46,62 @@ BodyParts = {
 }
 
 WeaponDamageList = {
-	['WEAPON_UNARMED'] = Lang:t('damage.unarmed'),
-	['WEAPON_ANIMAL'] = Lang:t('damage.animal'),
-	['WEAPON_COUGAR'] = Lang:t('damage.animal'),
+    ['WEAPON_UNARMED'] = Lang:t('damage.unarmed'),
+    ['WEAPON_ANIMAL'] = Lang:t('damage.animal'),
+    ['WEAPON_COUGAR'] = Lang:t('damage.animal'),
     ['WEAPON_REVOLVER_CATTLEMAN'] = Lang:t('damage.revolver'),
-	['WEAPON_REVOLVER_CATTLEMAN_MEXICAN'] = Lang:t('damage.revolver'),
-	['WEAPON_REVOLVER_DOUBLEACTION_GAMBLER'] = Lang:t('damage.revolver'),
-	['WEAPON_REVOLVER_SCHOFIELD'] = Lang:t('damage.revolver'),
-	['WEAPON_REVOLVER_LEMAT'] = Lang:t('damage.revolver'),
-	['WEAPON_REVOLVER_NAVY'] = Lang:t('damage.revolver'),
-	['WEAPON_PISTOL_VOLCANIC'] = Lang:t('damage.pistol'),
-	['WEAPON_PISTOL_M1899'] = Lang:t('damage.pistol'),
-	['WEAPON_PISTOL_MAUSER'] = Lang:t('damage.pistol'),
-	['WEAPON_PISTOL_SEMIAUTO'] = Lang:t('damage.pistol'),
-	['WEAPON_REPEATER_CARBINE'] = Lang:t('damage.rifle'),
-	['WEAPON_REPEATER_WINCHESTER'] = Lang:t('damage.rifle'),
-	['WEAPON_REPEATER_HENRY'] = Lang:t('damage.rifle'),
-	['WEAPON_REPEATER_EVANS'] = Lang:t('damage.rifle'),
-	['WEAPON_RIFLE_VARMINT'] = Lang:t('damage.rifle'),
-	['WEAPON_RIFLE_SPRINGFIELD'] = Lang:t('damage.rifle'),
-	['WEAPON_RIFLE_BOLTACTION'] = Lang:t('damage.rifle'),
-	['WEAPON_RIFLE_ELEPHANT'] = Lang:t('damage.rifle'),
-	['WEAPON_SHOTGUN_DOUBLEBARREL'] = Lang:t('damage.shotgun'),
-	['WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC'] = Lang:t('damage.shotgun'),
-	['WEAPON_SHOTGUN_SAWEDOFF'] = Lang:t('damage.shotgun'),
-	['WEAPON_SHOTGUN_SEMIAUTO'] = Lang:t('damage.shotgun'),
-	['WEAPON_SNIPERRIFLE_ROLLINGBLOCK'] = Lang:t('damage.sniper'),
-	['WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC'] = Lang:t('damage.sniper'),
-	['WEAPON_SNIPERRIFLE_CARCANO'] = Lang:t('damage.sniper'),
-	['WEAPON_BOW'] = Lang:t('damage.bow'),
-	['WEAPON_BOW_IMPROVED'] = Lang:t('damage.bow'),
-	['WEAPON_LASSO'] = Lang:t('damage.placeholder'),
+    ['WEAPON_REVOLVER_CATTLEMAN_MEXICAN'] = Lang:t('damage.revolver'),
+    ['WEAPON_REVOLVER_DOUBLEACTION_GAMBLER'] = Lang:t('damage.revolver'),
+    ['WEAPON_REVOLVER_SCHOFIELD'] = Lang:t('damage.revolver'),
+    ['WEAPON_REVOLVER_LEMAT'] = Lang:t('damage.revolver'),
+    ['WEAPON_REVOLVER_NAVY'] = Lang:t('damage.revolver'),
+    ['WEAPON_PISTOL_VOLCANIC'] = Lang:t('damage.pistol'),
+    ['WEAPON_PISTOL_M1899'] = Lang:t('damage.pistol'),
+    ['WEAPON_PISTOL_MAUSER'] = Lang:t('damage.pistol'),
+    ['WEAPON_PISTOL_SEMIAUTO'] = Lang:t('damage.pistol'),
+    ['WEAPON_REPEATER_CARBINE'] = Lang:t('damage.rifle'),
+    ['WEAPON_REPEATER_WINCHESTER'] = Lang:t('damage.rifle'),
+    ['WEAPON_REPEATER_HENRY'] = Lang:t('damage.rifle'),
+    ['WEAPON_REPEATER_EVANS'] = Lang:t('damage.rifle'),
+    ['WEAPON_RIFLE_VARMINT'] = Lang:t('damage.rifle'),
+    ['WEAPON_RIFLE_SPRINGFIELD'] = Lang:t('damage.rifle'),
+    ['WEAPON_RIFLE_BOLTACTION'] = Lang:t('damage.rifle'),
+    ['WEAPON_RIFLE_ELEPHANT'] = Lang:t('damage.rifle'),
+    ['WEAPON_SHOTGUN_DOUBLEBARREL'] = Lang:t('damage.shotgun'),
+    ['WEAPON_SHOTGUN_DOUBLEBARREL_EXOTIC'] = Lang:t('damage.shotgun'),
+    ['WEAPON_SHOTGUN_SAWEDOFF'] = Lang:t('damage.shotgun'),
+    ['WEAPON_SHOTGUN_SEMIAUTO'] = Lang:t('damage.shotgun'),
+    ['WEAPON_SNIPERRIFLE_ROLLINGBLOCK'] = Lang:t('damage.sniper'),
+    ['WEAPON_SNIPERRIFLE_ROLLINGBLOCK_EXOTIC'] = Lang:t('damage.sniper'),
+    ['WEAPON_SNIPERRIFLE_CARCANO'] = Lang:t('damage.sniper'),
+    ['WEAPON_BOW'] = Lang:t('damage.bow'),
+    ['WEAPON_BOW_IMPROVED'] = Lang:t('damage.bow'),
+    ['WEAPON_LASSO'] = Lang:t('damage.placeholder'),
     ['WEAPON_LASSO_REINFORCED'] = Lang:t('damage.placeholder'),
-	['WEAPON_MELEE_KNIFE'] = Lang:t('damage.stab'),
-	['WEAPON_MELEE_KNIFE_JAWBONE']  = Lang:t('damage.stab'),
-	['WEAPON_MELEE_HAMMER'] = Lang:t('damage.placeholder'),
-	['WEAPON_THROWN_DYNAMITE'] = Lang:t('damage.placeholder'),
-	['WEAPON_THROWN_MOLOTOV'] = Lang:t('damage.placeholder'),
-	['WEAPON_THROWN_THROWING_KNIVES'] = Lang:t('damage.stab'),
-	['WEAPON_THROWN_TOMAHAWK'] = Lang:t('damage.stab'),
-	['WEAPON_THROWN_TOMAHAWK_ANCIENT'] = Lang:t('damage.stab'),
-	['WEAPON_THROWN_BOLAS'] = Lang:t('damage.placeholder'),
-	['WEAPON_MELEE_CLEAVER'] = Lang:t('damage.placeholder'),
-	['WEAPON_MELEE_LANTERN'] = Lang:t('damage.hburns'),
-	['WEAPON_MELEE_DAVY_LANTERN'] = Lang:t('damage.hburns'),
-	['WEAPON_MELEE_TORCH'] = Lang:t('damage.hburns'),
-	['WEAPON_MELEE_HATCHET'] = Lang:t('damage.stab'),
-	['WEAPON_MELEE_MACHETE'] = Lang:t('damage.stab'),
-	['WEAPON_DROWNING'] = Lang:t('damage.drowned'),
-	['WEAPON_DROWNING_IN_VEHICLE'] = Lang:t('damage.drowned'),
-	['WEAPON_BLEEDING'] =  Lang:t('damage.blood'),
-	['WEAPON_EXPLOSION'] = Lang:t('damage.burns'),
-	['WEAPON_FALL'] = Lang:t('damage.bones'),
-	['WEAPON_EXHAUSTION'] = Lang:t('damage.exhaustion'),
-	['WEAPON_RAMMED_BY_CAR'] = Lang:t('damage.cart'),
-	['WEAPON_RUN_OVER_BY_CAR'] = Lang:t('damage.veh'),
-	['WEAPON_FIRE'] = Lang:t('damage.mburns'),
+    ['WEAPON_MELEE_KNIFE'] = Lang:t('damage.stab'),
+    ['WEAPON_MELEE_KNIFE_JAWBONE']  = Lang:t('damage.stab'),
+    ['WEAPON_MELEE_HAMMER'] = Lang:t('damage.placeholder'),
+    ['WEAPON_THROWN_DYNAMITE'] = Lang:t('damage.placeholder'),
+    ['WEAPON_THROWN_MOLOTOV'] = Lang:t('damage.placeholder'),
+    ['WEAPON_THROWN_THROWING_KNIVES'] = Lang:t('damage.stab'),
+    ['WEAPON_THROWN_TOMAHAWK'] = Lang:t('damage.stab'),
+    ['WEAPON_THROWN_TOMAHAWK_ANCIENT'] = Lang:t('damage.stab'),
+    ['WEAPON_THROWN_BOLAS'] = Lang:t('damage.placeholder'),
+    ['WEAPON_MELEE_CLEAVER'] = Lang:t('damage.placeholder'),
+    ['WEAPON_MELEE_LANTERN'] = Lang:t('damage.hburns'),
+    ['WEAPON_MELEE_DAVY_LANTERN'] = Lang:t('damage.hburns'),
+    ['WEAPON_MELEE_TORCH'] = Lang:t('damage.hburns'),
+    ['WEAPON_MELEE_HATCHET'] = Lang:t('damage.stab'),
+    ['WEAPON_MELEE_MACHETE'] = Lang:t('damage.stab'),
+    ['WEAPON_DROWNING'] = Lang:t('damage.drowned'),
+    ['WEAPON_DROWNING_IN_VEHICLE'] = Lang:t('damage.drowned'),
+    ['WEAPON_BLEEDING'] =  Lang:t('damage.blood'),
+    ['WEAPON_EXPLOSION'] = Lang:t('damage.burns'),
+    ['WEAPON_FALL'] = Lang:t('damage.bones'),
+    ['WEAPON_EXHAUSTION'] = Lang:t('damage.exhaustion'),
+    ['WEAPON_RAMMED_BY_CAR'] = Lang:t('damage.cart'),
+    ['WEAPON_RUN_OVER_BY_CAR'] = Lang:t('damage.veh'),
+    ['WEAPON_FIRE'] = Lang:t('damage.mburns'),
 }
 
 -- Functions
@@ -133,14 +132,12 @@ local function GetDamagingWeapon(ped)
             return v
         end
     end
-
     return nil
 end
 
 local function IsDamagingEvent(damageDone, weapon)
     local luck = math.random(100)
     local multi = damageDone / Config.HealthDamage
-
     return luck < (Config.HealthDamage * multi) or (damageDone >= Config.ForceInjury or multi > Config.MaxInjuryChanceMulti or Config.ForceInjuryWeapons[weapon])
 end
 
@@ -237,8 +234,8 @@ local function ProcessRunStuff(ped, bone)
         end
     else
         print("Normal Walkstyle")
-		Citizen.InvokeNative(0x923583741DC87BCE, ped, "arthur_healthy")
-		Citizen.InvokeNative(0x89F5E7ADECCCB49C, ped, "normal")
+        Citizen.InvokeNative(0x923583741DC87BCE, ped, "arthur_healthy")
+        Citizen.InvokeNative(0x89F5E7ADECCCB49C, ped, "normal")
     end
 end
 
@@ -249,14 +246,12 @@ function ResetPartial()
             v.severity = 0
         end
     end
-
     for k, v in pairs(injured) do
         if v.severity <= 2 then
             v.severity = 0
             table.remove(injured, k)
         end
     end
-
     if isBleeding <= 2 then
         isBleeding = 0
         bleedTickTimer = 0
@@ -264,20 +259,11 @@ function ResetPartial()
         fadeOutTimer = 0
         blackoutTimer = 0
     end
-
-    TriggerServerEvent('hospital:server:SyncInjuries', {
-        limbs = BodyParts,
-        isBleeding = tonumber(isBleeding)
-    })
-
+    TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
     ProcessRunStuff(PlayerPedId(), nil)
     DoLimbAlert()
     DoBleedAlert()
-
-    TriggerServerEvent('hospital:server:SyncInjuries', {
-        limbs = BodyParts,
-        isBleeding = tonumber(isBleeding)
-    })
+    TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
 end
 
 local function ResetAll()
@@ -291,69 +277,50 @@ local function ResetAll()
     onPainKiller = 0
     wasOnPainKillers = false
     injured = {}
-
     for k, v in pairs(BodyParts) do
         v.isDamaged = false
         v.severity = 0
     end
-
-    TriggerServerEvent('hospital:server:SyncInjuries', {
-        limbs = BodyParts,
-        isBleeding = tonumber(isBleeding)
-    })
-
+    TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
     CurrentDamageList = {}
     TriggerServerEvent('hospital:server:SetWeaponDamage', CurrentDamageList)
-
     ProcessRunStuff(PlayerPedId(), nil)
     DoLimbAlert()
     DoBleedAlert()
-
-    TriggerServerEvent('hospital:server:SyncInjuries', {
-        limbs = BodyParts,
-        isBleeding = tonumber(isBleeding)
-    })
+    TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
     Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, 100) -- SetAttributeCoreValue (health)
     TriggerServerEvent("RSGCore:Server:SetMetaData", "hunger", 100)
     TriggerServerEvent("RSGCore:Server:SetMetaData", "thirst", 100)
 end
 
 local function loadAnimDict(dict)
-	while(not HasAnimDictLoaded(dict)) do
-		RequestAnimDict(dict)
-		Wait(1)
-	end
+    while(not HasAnimDictLoaded(dict)) do
+        RequestAnimDict(dict)
+        Wait(1)
+    end
 end
 
 local function SetBedCam()
     isInHospitalBed = true
     canLeaveBed = false
     local player = PlayerPedId()
-
     DoScreenFadeOut(1000)
-
     while not IsScreenFadedOut() do
         Wait(100)
     end
-
-	if IsPedDeadOrDying(player) then
-		local pos = GetEntityCoords(player, true)
-		NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(player), true, false)
+    if IsPedDeadOrDying(player) then
+        local pos = GetEntityCoords(player, true)
+        NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(player), true, false)
     end
-
     bedObject = GetClosestObjectOfType(bedOccupyingData.coords.x, bedOccupyingData.coords.y, bedOccupyingData.coords.z, 1.0, bedOccupyingData.model, false, false, false)
     FreezeEntityPosition(bedObject, true)
-
     SetEntityCoords(player, bedOccupyingData.coords.x, bedOccupyingData.coords.y, bedOccupyingData.coords.z + 0.07)
     SetEntityInvincible(PlayerPedId(), true)
     Wait(500)
     FreezeEntityPosition(player, true)
-
     loadAnimDict(inBedDict)
-
     TaskPlayAnim(player, inBedDict , inBedAnim, 8.0, 1.0, -1, 1, 0, 0, 0, 0 )
     SetEntityHeading(player, bedOccupyingData.coords.w)
-
     cam = CreateCam("DEFAULT_SCRIPTED_CAMERA", 1)
     SetCamActive(cam, true)
     RenderScriptCams(true, false, 1, true, true)
@@ -362,21 +329,17 @@ local function SetBedCam()
     local heading = GetEntityHeading(player)
     heading = (heading > 180) and heading - 180 or heading + 180
     SetCamRot(cam, -45.0, 0.0, heading, 2)
-
     DoScreenFadeIn(1000)
-
     Wait(1000)
     FreezeEntityPosition(player, true)
 end
 
 local function LeaveBed()
     local player = PlayerPedId()
-
     RequestAnimDict(getOutDict)
     while not HasAnimDictLoaded(getOutDict) do
         Wait(0)
     end
-
     FreezeEntityPosition(player, false)
     SetEntityInvincible(player, false)
     SetEntityHeading(player, bedOccupyingData.coords.w - 90)
@@ -387,7 +350,6 @@ local function LeaveBed()
     FreezeEntityPosition(bedObject, true)
     RenderScriptCams(0, true, 200, true, true)
     DestroyCam(cam, false)
-
     bedOccupying = nil
     bedObject = nil
     bedOccupyingData = nil
@@ -395,8 +357,7 @@ local function LeaveBed()
 end
 
 local function DrawText3D(x, y, z, text)
-	local onScreen,_x,_y=GetScreenCoordFromWorldCoord(x, y, z)
-
+    local onScreen,_x,_y=GetScreenCoordFromWorldCoord(x, y, z)
     SetTextScale(0.35, 0.35)
     SetTextFontForCurrentCommand(1)
     SetTextColor(255, 255, 255, 215)
@@ -442,7 +403,6 @@ local function ApplyImmediateEffects(ped, bone, weapon, damageDone)
                 ApplyBleed(1)
             end
         end
-
         if Config.StaggerAreas[Config.Bones[bone]] and (Config.StaggerAreas[Config.Bones[bone]].armored or armor <= 0) then
             if math.random(100) <= math.ceil(Config.StaggerAreas[Config.Bones[bone]].minor) then
                 SetPedToRagdoll(ped, 1500, 2000, 3, true, true, false)
@@ -468,7 +428,6 @@ local function ApplyImmediateEffects(ped, bone, weapon, damageDone)
                 end
             end
         end
-
         if Config.StaggerAreas[Config.Bones[bone]] and (Config.StaggerAreas[Config.Bones[bone]].armored or armor <= 0) then
             if math.random(100) <= math.ceil(Config.StaggerAreas[Config.Bones[bone]].major) then
                 SetPedToRagdoll(ped, 1500, 2000, 3, true, true, false)
@@ -479,10 +438,8 @@ end
 
 local function CheckDamage(ped, bone, weapon, damageDone)
     if weapon == nil then return end
-
     if Config.Bones[bone] and not isDead and not InLaststand then
         ApplyImmediateEffects(ped, bone, weapon, damageDone)
-
         if not BodyParts[Config.Bones[bone]].isDamaged then
             BodyParts[Config.Bones[bone]].isDamaged = true
             BodyParts[Config.Bones[bone]].severity = math.random(1, 3)
@@ -494,7 +451,6 @@ local function CheckDamage(ped, bone, weapon, damageDone)
         else
             if BodyParts[Config.Bones[bone]].severity < 4 then
                 BodyParts[Config.Bones[bone]].severity = BodyParts[Config.Bones[bone]].severity + 1
-
                 for k, v in pairs(injured) do
                     if v.part == Config.Bones[bone] then
                         v.severity = BodyParts[Config.Bones[bone]].severity
@@ -502,12 +458,7 @@ local function CheckDamage(ped, bone, weapon, damageDone)
                 end
             end
         end
-
-        TriggerServerEvent('hospital:server:SyncInjuries', {
-            limbs = BodyParts,
-            isBleeding = tonumber(isBleeding)
-        })
-
+        TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
         ProcessRunStuff(ped, bone)
     end
 end
@@ -546,11 +497,9 @@ local function ProcessDamage(ped)
                                 if IsPedInAnyVehicle(ped, true) then
                                     DisableControlAction(0, 63, true) -- veh turn left
                                 end
-
                                 if IsPlayerFreeAiming(PlayerId()) then
                                     DisablePlayerFiring(PlayerId(), true) -- Disable weapon firing
                                 end
-
                                 isDisabled = isDisabled - 1
                                 Wait(1)
                             end
@@ -562,17 +511,14 @@ local function ProcessDamage(ped)
                                 if IsPedInAnyVehicle(ped, true) then
                                     DisableControlAction(0, 63, true) -- veh turn left
                                 end
-
                                 if IsPlayerFreeAiming(PlayerId()) then
                                     DisableControlAction(0, 25, true) -- Disable weapon firing
                                 end
-
                                 isDisabled = isDisabled - 1
                                 Wait(1)
                             end
                         end)
                     end
-
                     armcount = 0
                 else
                     armcount = armcount + 1
@@ -583,17 +529,14 @@ local function ProcessDamage(ped)
 
                     if chance <= Config.HeadInjuryChance then
                         SetFlash(0, 0, 100, 10000, 100)
-
                         DoScreenFadeOut(100)
                         while not IsScreenFadedOut() do
                             Wait(0)
                         end
-
                         if not IsPedRagdoll(ped) and IsPedOnFoot(ped) and not IsPedSwimming(ped) then
                             ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', Config.ShakeGameplayCam) -- change this float to increase/decrease camera shake
                             SetPedToRagdoll(ped, 5000, 1, 2)
                         end
-
                         Wait(5000)
                         DoScreenFadeIn(250)
                     end
@@ -626,10 +569,9 @@ RegisterNetEvent('ambulance:client:promptCheckin', function()
         }, {}, {}, {}, function() -- Done
             local bedId = GetAvailableBed()
             if bedId then
-
                 TriggerServerEvent("hospital:server:SendToBed", bedId, true)
             else
-				RSGCore.Functions.Notify(Lang:t('error.beds_taken'), 'error')
+                RSGCore.Functions.Notify(Lang:t('error.beds_taken'), 'error')
             end
         end, function() -- Cancel
             RSGCore.Functions.Notify(Lang:t('error.canceled'), 'error')
@@ -650,7 +592,7 @@ RegisterNetEvent('hospital:client:ambulanceAlert', function(coords, text)
     local transG = 250
     local blipText = Lang:t('info.ems_alert', {text = text})
     local blip = N_0x554d9d53f696d002(1664425300, coords.x, coords.y, coords.z) --AddBlip
-	RSGCore.Functions.Notify(Lang:t('text.alert'), 'ambulance')
+    RSGCore.Functions.Notify(Lang:t('text.alert'), 'ambulance')
     SetBlipSprite(blip, 960467426, 1)
     SetBlipScale(blip, 0.2)
     Citizen.InvokeNative(0x9CB1A1623062F402, blip, text) --SetBlipName
@@ -667,7 +609,6 @@ end)
 
 RegisterNetEvent('hospital:client:Revive', function()
     local player = PlayerPedId()
-
     if isDead or InLaststand then
         local pos = GetEntityCoords(player, true)
         NetworkResurrectLocalPlayer(pos.x, pos.y, pos.z, GetEntityHeading(player), true, false)
@@ -675,14 +616,12 @@ RegisterNetEvent('hospital:client:Revive', function()
         SetEntityInvincible(player, false)
         SetLaststand(false)
     end
-
     if isInHospitalBed then
         loadAnimDict(inBedDict)
         TaskPlayAnim(player, inBedDict , inBedAnim, 8.0, 1.0, -1, 1, 0, 0, 0, 0 )
         SetEntityInvincible(player, true)
         canLeaveBed = true
-    end
-    
+    end  
     TriggerServerEvent("hospital:server:RestoreWeaponDamage")
     SetEntityMaxHealth(player, 100)
     SetEntityHealth(player, GetEntityMaxHealth(player))
@@ -707,7 +646,6 @@ RegisterNetEvent('hospital:client:SetPain', function()
             severity = BodyParts[Config.Bones[14410]].severity
         }
     end
-
     if not BodyParts[Config.Bones[54187]].isDamaged then
         BodyParts[Config.Bones[54187]].isDamaged = true
         BodyParts[Config.Bones[54187]].severity = math.random(1, 4)
@@ -717,13 +655,8 @@ RegisterNetEvent('hospital:client:SetPain', function()
             severity = BodyParts[Config.Bones[54187]].severity
         }
     end
-
-    TriggerServerEvent('hospital:server:SyncInjuries', {
-        limbs = BodyParts,
-        isBleeding = tonumber(isBleeding)
-    })
+    TriggerServerEvent('hospital:server:SyncInjuries', { limbs = BodyParts, isBleeding = tonumber(isBleeding) })
 end)
-
 
 RegisterNetEvent('hospital:client:KillPlayer', function()
     SetEntityHealth(PlayerPedId(), 0)
@@ -731,7 +664,6 @@ end)
 
 RegisterNetEvent('hospital:client:HealInjuries', function(type)
     if type == "full" then
-        
         ResetAll()
     else
         ResetPartial()
@@ -863,25 +795,19 @@ CreateThread(function()
         local ped = PlayerPedId()
         local health = GetEntityHealth(ped)
         local armor = 0
-
         if not playerHealth then
             playerHealth = health
         end
-
         if not playerArmor then
             playerArmor = armor
         end
-
         local armorDamaged = (playerArmor ~= armor and armor < (playerArmor - Config.ArmorDamage) and armor > 0) -- Players armor was damaged
         local healthDamaged = (playerHealth ~= health) -- Players health was damaged
-
         local damageDone = (playerHealth - health)
-
         if armorDamaged or healthDamaged then
             local hit, bone = GetPedLastDamageBone(ped)
             local bodypart = Config.Bones[bone]
             local weapon = GetDamagingWeapon(ped)
-
             if hit and bodypart ~= 'NONE' then
                 local checkDamage = true
                 local GetPedArmour = Citizen.InvokeNative(0x2CE311A7, ped)
@@ -909,13 +835,10 @@ CreateThread(function()
                     end
                 end
             end
-
             CheckWeaponDamage(ped)
         end
-
         playerHealth = health
         playerArmor = armor
-
         if not isInHospitalBed then
             ProcessDamage(ped)
         end

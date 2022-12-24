@@ -45,12 +45,12 @@ RegisterNetEvent('hospital:client:UseIfaks', function(itemName)
     RSGCore.Functions.Progressbar("use_bandage", Lang:t('progress.ifaks'), 3000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
-		disableMouse = false,
-		disableCombat = true,
+        disableMouse = false,
+        disableCombat = true,
     }, {
-		animDict = IfaksDict,
-		anim = IfaksAnim,
-		flags = 1,
+        animDict = IfaksDict,
+        anim = IfaksAnim,
+        flags = 1,
     }, {}, {}, function() -- Done
         StopAnimTask(ped, IfaksDict, IfaksAnim, 1.0)
         TriggerEvent("inventory:client:ItemBox", RSGCore.Shared.Items[itemName], "remove")
@@ -74,18 +74,18 @@ RegisterNetEvent('hospital:client:UseBandage', function(itemName)
     RSGCore.Functions.Progressbar("use_bandage", Lang:t('progress.bandage'), 4000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
-		disableMouse = false,
-		disableCombat = true,
+        disableMouse = false,
+        disableCombat = true,
     }, {
-		animDict = BandageDict,
-		anim = BandageAnim,
-		flags = 1,
+        animDict = BandageDict,
+        anim = BandageAnim,
+        flags = 1,
     }, {}, {}, function() -- Done
         StopAnimTask(ped, BandageDict, BandageAnim, 1.0)
         TriggerEvent("inventory:client:ItemBox", RSGCore.Shared.Items[itemName], "remove")
-		-- health adjust
-		Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 100) -- SetAttributeCoreValue (health)
-		-- end health adjust
+        -- health adjust
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 100) -- SetAttributeCoreValue (health)
+        -- end health adjust
         if math.random(1, 100) < 50 then
             RemoveBleed(1)
         end
@@ -103,12 +103,12 @@ RegisterNetEvent('hospital:client:UsePainkillers', function(itemName)
     RSGCore.Functions.Progressbar("use_bandage", Lang:t('progress.painkillers'), 3000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
-		disableMouse = false,
-		disableCombat = true,
+        disableMouse = false,
+        disableCombat = true,
     }, {
-		animDict = PainkillersDict,
-		anim = PainkillersAnim,
-		flags = 1,
+        animDict = PainkillersDict,
+        anim = PainkillersAnim,
+        flags = 1,
     }, {}, {}, function() -- Done
         StopAnimTask(ped, PainkillersDict, PainkillersAnim, 1.0)
         TriggerEvent("inventory:client:ItemBox", RSGCore.Shared.Items[itemName], "remove")
@@ -141,20 +141,20 @@ CreateThread(function()
 end)
 
 CreateThread(function()
-	while true do
-		if #injured > 0 then
-			local level = 0
-			for k, v in pairs(injured) do
-				if v.severity > level then
-					level = v.severity
-				end
-			end
-			SetPedMoveRateOverride(PlayerPedId(), Config.MovementRate[level])
-			Wait(5)
-		else
-			Wait(1000)
-		end
-	end
+    while true do
+        if #injured > 0 then
+            local level = 0
+            for k, v in pairs(injured) do
+                if v.severity > level then
+                    level = v.severity
+                end
+            end
+            SetPedMoveRateOverride(PlayerPedId(), Config.MovementRate[level])
+            Wait(5)
+        else
+            Wait(1000)
+        end
+    end
 end)
 
 CreateThread(function()
@@ -170,17 +170,14 @@ CreateThread(function()
                         if fadeOutTimer + 1 == Config.FadeOutTimer then
                             if blackoutTimer + 1 == Config.BlackoutTimer then
                                 SetFlash(0, 0, 100, 7000, 100)
-
                                 DoScreenFadeOut(500)
                                 while not IsScreenFadedOut() do
                                     Wait(0)
                                 end
-
                                 if not IsPedRagdoll(player) and IsPedOnFoot(player) and not IsPedSwimming(player) then
                                     ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', Config.ShakeGameplayCam) -- change this float to increase/decrease camera shake
                                     SetPedToRagdollWithFall(player, 7500, 9000, 1, GetEntityForwardVector(player), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
                                 end
-
                                 Wait(1500)
                                 DoScreenFadeIn(1000)
                                 blackoutTimer = 0
@@ -190,19 +187,16 @@ CreateThread(function()
                                     Wait(0)
                                 end
                                 DoScreenFadeIn(500)
-
                                 if isBleeding > 3 then
                                     blackoutTimer = blackoutTimer + 2
                                 else
                                     blackoutTimer = blackoutTimer + 1
                                 end
                             end
-
                             fadeOutTimer = 0
                         else
                             fadeOutTimer = fadeOutTimer + 1
                         end
-
                         local bleedDamage = tonumber(isBleeding) * Config.BleedTickDamage
                         ApplyDamageToPed(player, bleedDamage, false)
                         DoBleedAlert()
@@ -211,7 +205,6 @@ CreateThread(function()
                         local randY = math.random() + math.random(-1, 1)
                         local coords = GetOffsetFromEntityInWorldCoords(player, randX, randY, 0)
                         TriggerServerEvent("evidence:server:CreateBloodDrop", RSGCore.Functions.GetPlayerData().citizenid, RSGCore.Functions.GetPlayerData().metadata["bloodtype"], coords)
-
                         if advanceBleedTimer >= Config.AdvanceBleedTimer then
                             ApplyBleed(1)
                             advanceBleedTimer = 0

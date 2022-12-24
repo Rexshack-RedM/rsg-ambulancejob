@@ -1,5 +1,4 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
-
 Laststand = Laststand or {}
 Laststand.ReviveInterval = Config.TimeTillRespawn
 Laststand.MinimumRevive = Config.MinimumRevive
@@ -7,13 +6,13 @@ InLaststand = false
 LaststandTime = 0
 isEscorted = false
 local isEscorting = false
+
 -- Functions
 local function GetClosestPlayer()
     local closestPlayers = RSGCore.Functions.GetPlayersFromCoords()
     local closestDistance = -1
     local closestPlayer = -1
     local coords = GetEntityCoords(PlayerPedId())
-
     for i=1, #closestPlayers, 1 do
         if closestPlayers[i] ~= PlayerId() then
             local pos = GetEntityCoords(GetPlayerPed(closestPlayers[i]))
@@ -25,7 +24,6 @@ local function GetClosestPlayer()
             end
         end
 	end
-
 	return closestPlayer, closestDistance
 end
 
@@ -58,11 +56,9 @@ function SetLaststand(bool, spawn)
 					SetLaststand(false)
                     local killer_2, killerWeapon = NetworkGetEntityKillerOfPlayer(player)
                     local killer = GetPedSourceOfDeath(ped)
-
                     if killer_2 ~= 0 and killer_2 ~= -1 then
                         killer = killer_2
                     end
-
                     local killerId = NetworkGetPlayerIndexFromPed(killer)
                     local killerName = killerId ~= -1 and GetPlayerName(killerId) .. " " .. "("..GetPlayerServerId(killerId)..")" or Lang:t('info.self_death')
                     local weaponLabel = Lang:t('info.wep_unknown')
